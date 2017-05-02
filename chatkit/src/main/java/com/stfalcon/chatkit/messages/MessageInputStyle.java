@@ -213,12 +213,9 @@ class MessageInputStyle extends Style {
     }
 
     Drawable getInputButtonIcon() {
-        if (inputButtonIcon == -1) {
-            return getSelector(inputButtonDefaultIconColor, inputButtonDefaultIconPressedColor,
-                    inputButtonDefaultIconDisabledColor, R.drawable.ic_send);
-        } else {
-            return getDrawable(inputButtonIcon);
-        }
+        int shape = inputButtonIcon != -1 ? inputButtonIcon : R.drawable.ic_send;
+        return getSelector(inputButtonDefaultIconColor, inputButtonDefaultIconPressedColor,
+                inputButtonDefaultIconDisabledColor, shape);
     }
 
     int getInputButtonMargin() {
